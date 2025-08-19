@@ -1,0 +1,63 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: reembolso-backend
+  annotations:
+    run.googleapis.com/ingress: all
+    run.googleapis.com/execution-environment: gen2
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: "true"
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      containers:
+      - image: gcr.io/wdiscover-ai-2025/reembolso-backend:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: NODE_ENV
+          value: "production"
+        - name: PORT
+          value: "8080"
+        - name: DB_HOST
+          value: "your-cloud-sql-instance-ip"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_NAME
+          value: "reembolso_db"
+        - name: DB_USER
+          value: "reembolso_user"
+        - name: DB_PASSWORD
+          value: "your-secure-password"
+        - name: REDIS_URL
+          value: "redis://your-memorystore-instance-ip:6379"
+        - name: JWT_SECRET
+          value: "your-super-secure-jwt-secret-key"
+        - name: JWT_EXPIRES_IN
+          value: "24h"
+        - name: BCRYPT_ROUNDS
+          value: "12"
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      serviceAccountName: reembolso-service-account

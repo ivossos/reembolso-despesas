@@ -1,0 +1,14 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/reembolso-frontend:latest'
+      - '-f'
+      - 'frontend/Dockerfile.production'
+      - '--build-arg'
+      - 'VITE_API_URL=${_VITE_API_URL}'
+      - 'frontend'
+images:
+  - 'gcr.io/$PROJECT_ID/reembolso-frontend:latest'
+

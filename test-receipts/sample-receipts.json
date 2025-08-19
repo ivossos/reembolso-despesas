@@ -1,0 +1,79 @@
+{
+  "receipts": [
+    {
+      "id": "receipt-001",
+      "type": "restaurant",
+      "vendor": "Restaurante Brasileiro",
+      "amount": 45.80,
+      "currency": "BRL",
+      "date": "2025-01-15",
+      "category": "meals",
+      "description": "Business lunch with client",
+      "items": [
+        "Prato Feito - R$ 25.90",
+        "Refrigerante - R$ 8.50",
+        "Sobremesa - R$ 11.40"
+      ],
+      "tax": 4.58,
+      "total": 45.80
+    },
+    {
+      "id": "receipt-002", 
+      "type": "transportation",
+      "vendor": "Uber",
+      "amount": 32.50,
+      "currency": "BRL",
+      "date": "2025-01-16",
+      "category": "transportation",
+      "description": "Client meeting transportation",
+      "from": "Office",
+      "to": "Client Office",
+      "distance": "8.5 km",
+      "total": 32.50
+    },
+    {
+      "id": "receipt-003",
+      "type": "office_supplies",
+      "vendor": "Papelaria Central",
+      "amount": 127.90,
+      "currency": "BRL", 
+      "date": "2025-01-17",
+      "category": "office_supplies",
+      "description": "Office supplies for team",
+      "items": [
+        "Notebooks (10x) - R$ 45.00",
+        "Pens (20x) - R$ 32.00",
+        "Stapler - R$ 28.90",
+        "Paper clips - R$ 22.00"
+      ],
+      "total": 127.90
+    },
+    {
+      "id": "receipt-004",
+      "type": "software",
+      "vendor": "Adobe Creative Cloud",
+      "amount": 89.90,
+      "currency": "BRL",
+      "date": "2025-01-18", 
+      "category": "software",
+      "description": "Monthly subscription for design team",
+      "plan": "Creative Cloud All Apps",
+      "billing_cycle": "monthly",
+      "total": 89.90
+    },
+    {
+      "id": "receipt-005",
+      "type": "accommodation",
+      "vendor": "Hotel Business Center",
+      "amount": 280.00,
+      "currency": "BRL",
+      "date": "2025-01-19",
+      "category": "accommodation", 
+      "description": "Business trip accommodation",
+      "nights": 2,
+      "room_type": "Standard Business",
+      "breakfast": "included",
+      "total": 280.00
+    }
+  ]
+}

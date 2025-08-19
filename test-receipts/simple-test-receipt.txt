@@ -1,0 +1,11 @@
+SIMPLE TEST RECEIPT
+===================
+Vendor: Test Store
+Amount: R$ 25.00
+Date: 2025-01-20
+Category: office_supplies
+===================
+This is a test receipt to verify
+that the system properly stores
+receipt data in the database.
+===================
